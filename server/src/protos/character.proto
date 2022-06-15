@@ -10,11 +10,11 @@ service CharacterService {
 }
 
 message GetCharacterRequest {
-  string characterId = 1;
+  int32 characterId = 1;
 }
 
 message GetCharacterResponse {
-  string characterId = 1;
+  int32 characterId = 1;
   string name = 2;
   string life = 3;
 }
@@ -24,25 +24,25 @@ message CreateCharacterRequest {
 }
 
 message CreateCharacterResponse {
-  string characterId = 1;
+  int32 characterId = 1;
 }
 
 message UpdateCharacterRequest {
-  string characterId = 1;
+  int32 characterId = 1;
   string name = 2;
   string life = 3;
 }
 
 message UpdateCharacterResponse {
-  string characterId = 1;
+  int32 characterId = 1;
   string name = 2;
   string life = 3;
 }
 
 message DeleteCharacterRequest {
-  string characterId = 1;
+  int32 characterId = 1;
 }
 
 message DeleteCharacterResponse {
-  string characterId = 1;
+  int32 characterId = 1;
 }

@@ -2,6 +2,7 @@
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 
+import Migrations from './migrations/migrations';
 import CharacterService from './services/character';
 
 // Data
@@ -17,12 +18,16 @@ function defineRoutes() {
 
     // Define the routes
     server.addService(characterProto.CharacterService.service, {
-        GetCharacter: CharacterService.GetCharacter
+        GetCharacter: CharacterService.GetCharacter,
+        CreateCharacter: CharacterService.CreateCharacter,
+        UpdateCharacter: CharacterService.UpdateCharacter,
+        DeleteCharacter: CharacterService.DeleteCharacter,
     });
 }
 
 
 async function main() {
+    await Migrations.up();
     defineRoutes();
 
     // Start the Server
