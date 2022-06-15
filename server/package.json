@@ -1,0 +1,13 @@
+{
+  "name": "grpc",
+  "version": "1.0.0",
+  "main": "build/app.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && node ."
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.7",
+    "typescript": "^4.7.3"
+  }
+}

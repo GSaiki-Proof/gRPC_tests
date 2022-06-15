@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package character;
+
+service CharacterService {
+  rpc GetCharacter(GetCharacterRequest) returns (GetCharacterResponse) {}
+  rpc CreateCharacter(CreateCharacterRequest) returns (CreateCharacterResponse) {}
+  rpc UpdateCharacter(UpdateCharacterRequest) returns (UpdateCharacterResponse) {}
+  rpc DeleteCharacter(DeleteCharacterRequest) returns (DeleteCharacterResponse) {}
+}
+
+message GetCharacterRequest {
+  string character_id = 1;
+}
+
+message GetCharacterResponse {
+  string character_id = 1;
+  string name = 2;
+  string life = 3;
+}
+
+message CreateCharacterRequest {
+  string name = 1;
+}
+
+message CreateCharacterResponse {
+  string character_id = 1;
+}
+
+message UpdateCharacterRequest {
+  string character_id = 1;
+  string name = 2;
+  string life = 3;
+}
+
+message UpdateCharacterResponse {
+  string character_id = 1;
+  string name = 2;
+  string life = 3;
+}
+
+message DeleteCharacterRequest {
+  string character_id = 1;
+}
+
+message DeleteCharacterResponse {
+  string character_id = 1;
+}
