@@ -16,7 +16,7 @@ message GetCharacterRequest {
 message GetCharacterResponse {
   int32 characterId = 1;
   string name = 2;
-  string life = 3;
+  int32 life = 3;
 }
 
 message CreateCharacterRequest {
@@ -25,18 +25,20 @@ message CreateCharacterRequest {
 
 message CreateCharacterResponse {
   int32 characterId = 1;
+  string name = 2;
+  int32 life = 3;
 }
 
 message UpdateCharacterRequest {
   int32 characterId = 1;
   string name = 2;
-  string life = 3;
+  int32 life = 3;
 }
 
 message UpdateCharacterResponse {
   int32 characterId = 1;
   string name = 2;
-  string life = 3;
+  int32 life = 3;
 }
 
 message DeleteCharacterRequest {

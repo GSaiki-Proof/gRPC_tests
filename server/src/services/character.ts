@@ -1,6 +1,4 @@
 // Libs
-import * as grpc from '@grpc/grpc-js';
-
 import { ServerUnaryCall, sendUnaryData } from '@grpc/grpc-js';
 import Character from '../models/character';
 
@@ -24,8 +22,9 @@ class CharacterService {
 
             const result = search.toJSON();
 
+            console.log('Got character: \n' + JSON.stringify(result));
             return callback(null, {
-                id: result.id,
+                characterId: result.id,
                 name: result.name,
                 life: result.life
             });
@@ -42,8 +41,9 @@ class CharacterService {
             });
 
             const result = char.toJSON();
+            console.log('Created character: \n' + JSON.stringify(result));
             return callback(null, {
-                id: result.id,
+                characterId: result.id,
                 name: result.name,
                 life: result.life
             });
@@ -65,13 +65,17 @@ class CharacterService {
                 return callback(new Error('Character not found'));
             }
 
+            console.log(
+                `name: ${call.request.name}, life: ${call.request.life}`);
+
             const result = (await search.update({
                 name: call.request.name,
                 life: call.request.life
             })).toJSON();
 
+            console.log('Updated character: \n' + JSON.stringify(result));
             return callback(null, {
-                id: result.id,
+                characterId: result.id,
                 name: result.name,
                 life: result.life
             });
@@ -94,8 +98,9 @@ class CharacterService {
 
             await search.destroy();
 
+            console.log('Deleted character.');
             return callback(null, {
-                id: call.request.characterId
+                characterId: call.request.characterId
             });
     }
 }
