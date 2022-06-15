@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.6.7",
+    "fs": "^0.0.1-security",
     "typescript": "^4.7.3"
   }
 }
